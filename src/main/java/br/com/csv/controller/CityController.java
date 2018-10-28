@@ -1,6 +1,7 @@
 package br.com.csv.controller;
 
 import br.com.csv.model.City;
+import br.com.csv.model.State;
 import br.com.csv.service.CityServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,6 +35,17 @@ public class CityController {
         try{
             List<City> capital = cityServices.findCapital();
             return ResponseEntity.ok(capital);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+    @RequestMapping(value = "/state-white-larger-and-smaller-quantity-of-city", method = RequestMethod.GET)
+    public ResponseEntity<?> stateWithLargerAndSmallerQuantityOfCity(){
+        try{
+            List<State> states = cityServices.stateWithLargerAndSmallerQuantityOfCity();
+            return ResponseEntity.ok(states);
         } catch (Exception e) {
             e.printStackTrace();
         }
