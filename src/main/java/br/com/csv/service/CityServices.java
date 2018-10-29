@@ -3,7 +3,6 @@ package br.com.csv.service;
 import br.com.csv.model.City;
 import br.com.csv.model.State;
 import br.com.csv.repository.CityRepository;
-import br.com.csv.repository.StateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +17,6 @@ public class CityServices {
     @Autowired
     CityRepository cityRepository;
 
-    @Autowired
-    StateRepository stateRepository;
 
     public void importCsv() throws IOException {
         Reader inputCsv = null;
@@ -55,7 +52,7 @@ public class CityServices {
 
     public List<State> stateWithLargerAndSmallerQuantityOfCity() {
         List<State> states = new ArrayList<>();
-        states = stateRepository.numberOfCitiesByState();
+        states = cityRepository.numberOfCitiesByState();
         Optional<State> maxCity = states.stream().max(Comparator.comparing(State::getNumber));
         Optional<State> minCity = states.stream().min(Comparator.comparing(State::getNumber));
         return Arrays.asList(maxCity.get(), minCity.get());
