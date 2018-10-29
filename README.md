@@ -34,19 +34,23 @@ $ mvn clean install
 ### Respostas das questões do desafio:
 Segue abaixo uma lista de urls que exemplificam o serviço. A mesma lista se encontra em http://localhost:8080
 
-http://localhost:8080/city/csv-to-import
+http://localhost:8080/city/csvToImport
 
 http://localhost:8080/city/capital
 
-http://localhost:8080/city/number-of-city-by-state
+http://localhost:8080/city/numberOfCityByState
 
-http://localhost:8080/city/state-white-larger-and-smaller-quantity-of-city
+http://localhost:8080/city/stateWhiteLargerAndSmallerQuantityOfCity
 
-http://localhost:8080/city/find-by-idIbge/1100031
+http://localhost:8080/city/findByIdIbge/1100031
 
 http://localhost:8080/city/citiesByState/RO
 
+http://localhost:8080/city/findCitiesByFilter/{uf}/{RO}
+
+
 http://localhost:8080/crud (para gerar o json do objeto e posteriormente fazer salvar uma nova cidade)
+
 http://localhost:8080/crud/addCity
 
 http://localhost:8080/crud/deleteCity/5566
@@ -57,16 +61,17 @@ http://localhost:8080/city/totalNumberOfCities
 
 
 ### Tecnologias utilizadas
-Maven
+- Maven
 
-Spring boot
+- Spring boot
 
-Spring Data
+- Spring Data
 
-JPA(HIBERNATE)
+- JPA(HIBERNATE)
 
-MYSQL
+- MYSQL
 
-Java 8 
+- Java 8 
+
 
 
