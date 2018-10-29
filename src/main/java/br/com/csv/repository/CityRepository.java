@@ -12,8 +12,6 @@ import java.util.List;
 @Repository
 public interface CityRepository extends JpaRepository<City, Integer> {
 
-    EntityManager em = null;
-
     @Query("SELECT c FROM City c WHERE c.capital = TRUE " +
             "ORDER BY c.nameCity ")
      List<City> findCapital();
