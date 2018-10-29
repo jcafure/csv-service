@@ -58,5 +58,13 @@ public class CityServices {
         return Arrays.asList(maxCity.get(), minCity.get());
     }
 
+    public List<State> numberOfCityByState() {
+        return cityRepository.numberOfCitiesByState();
+    }
+
+    public City findByidIbge(Integer idIbge){
+        return cityRepository.findByIdIbge(idIbge);
+    }
+
 
 }

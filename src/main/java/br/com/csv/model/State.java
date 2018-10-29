@@ -1,36 +1,18 @@
 package br.com.csv.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class State implements Serializable {
 
     private String state;
     private Long number;
-
-    public State() {
-    }
-
-    public State(String state, Long number) {
-        this.state = state;
-        this.number = number;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public Long getNumber() {
-        return number;
-    }
-
-    public void setNumber(Long number) {
-        this.number = number;
-    }
 
 }

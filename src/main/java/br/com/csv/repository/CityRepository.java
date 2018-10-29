@@ -20,4 +20,7 @@ public interface CityRepository extends JpaRepository<City, Integer> {
             "FROM City c " +
             "Group By c.estado Order By c.estado")
     public List<State> numberOfCitiesByState();
+
+    @Query("Select c From City c WHERE c.idIbge = ?1")
+    public City findByIdIbge (Integer idIbge);
 }
