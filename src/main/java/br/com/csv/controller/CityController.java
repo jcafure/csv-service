@@ -2,7 +2,7 @@ package br.com.csv.controller;
 
 import br.com.csv.model.City;
 import br.com.csv.model.State;
-import br.com.csv.service.CityServices;
+import br.com.csv.service.serviceimp.CityServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -86,4 +86,26 @@ public class CityController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
+    @RequestMapping(value = "/findCitiesByFilter/{column}/{filter}", method = RequestMethod.GET)
+    public ResponseEntity<?> countRecordsByColumn(@PathVariable(value = "column") String column,
+                                                  @PathVariable(value = "filter") String filter){
+        try{
+            List<City> cities = cityServices.findByFilter(column, filter);
+            return ResponseEntity.ok(cities);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+    @RequestMapping(value = "/totalNumberOfCities", method = RequestMethod.GET)
+    public ResponseEntity<?> totalNumberOfCities(){
+        try{
+           Integer total = cityServices.totalNumberOfCities();
+            return ResponseEntity.ok(total);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
 }

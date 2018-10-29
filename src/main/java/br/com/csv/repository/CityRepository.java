@@ -6,10 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
 public interface CityRepository extends JpaRepository<City, Integer> {
+
+    EntityManager em = null;
 
     @Query("SELECT c FROM City c WHERE c.capital = TRUE " +
             "ORDER BY c.nameCity ")
@@ -26,4 +29,8 @@ public interface CityRepository extends JpaRepository<City, Integer> {
 
     @Query("Select c From City c WHERE c.estado = ?1")
     public List<City> findCitiesByEstado(String uf);
+
+    @Query("Select COUNT (Distinct c) From City c ")
+    public Integer totalNumberOfCities();
+
 }

@@ -1,22 +1,26 @@
-package br.com.csv.service;
+package br.com.csv.service.serviceimp;
 
 import br.com.csv.model.City;
 import br.com.csv.model.State;
 import br.com.csv.repository.CityRepository;
+import br.com.csv.repository.ColumnsRepositoryCustom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 import java.math.BigDecimal;
 import java.util.*;
 
-
 @Service
-public class CityServices {
+public class CityServices  {
 
     @Autowired
     CityRepository cityRepository;
 
+    @Autowired
+    ColumnsRepositoryCustom columnsRepositoryCustom;
 
     public void importCsv() throws IOException {
         Reader inputCsv = null;
@@ -70,5 +74,12 @@ public class CityServices {
         return cityRepository.findCitiesByEstado(uf);
     }
 
+    public List<City> findByFilter(String column, String filter){
+        return columnsRepositoryCustom.findCitiesByFilter(column, filter);
+    }
+
+    public Integer totalNumberOfCities(){
+       return cityRepository.totalNumberOfCities();
+    }
 
 }
