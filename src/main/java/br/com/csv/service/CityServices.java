@@ -66,5 +66,9 @@ public class CityServices {
         return cityRepository.findByIdIbge(idIbge);
     }
 
+    public List<City> findCitiesByEstado(String uf) {
+        return cityRepository.findCitiesByEstado(uf);
+    }
+
 
 }

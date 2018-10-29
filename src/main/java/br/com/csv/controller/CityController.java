@@ -4,7 +4,6 @@ import br.com.csv.model.City;
 import br.com.csv.model.State;
 import br.com.csv.service.CityServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -71,6 +69,17 @@ public class CityController {
         try{
            City city = cityServices.findByidIbge(idIbge);
            return ResponseEntity.ok(city);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+    @RequestMapping(value = "/citiesByState/{uf}", method = RequestMethod.GET)
+    public ResponseEntity<?> citiesByState(@PathVariable(value = "uf") String uf){
+        try{
+            List<City> cities = cityServices.findCitiesByEstado(uf);
+            return ResponseEntity.ok(cities);
         } catch (Exception e) {
             e.printStackTrace();
         }

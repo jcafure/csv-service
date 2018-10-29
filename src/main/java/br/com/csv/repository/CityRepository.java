@@ -23,4 +23,7 @@ public interface CityRepository extends JpaRepository<City, Integer> {
 
     @Query("Select c From City c WHERE c.idIbge = ?1")
     public City findByIdIbge (Integer idIbge);
+
+    @Query("Select c From City c WHERE c.estado = ?1")
+    public List<City> findCitiesByEstado(String uf);
 }
