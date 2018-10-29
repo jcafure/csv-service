@@ -46,7 +46,7 @@ http://localhost:8080/city/findByIdIbge/1100031
 
 http://localhost:8080/city/citiesByState/RO
 
-http://localhost:8080/city/findCitiesByFilter/{uf}/{RO}
+http://localhost:8080/city/findCitiesByFilter/uf/RO
 
 
 http://localhost:8080/crud (para gerar o json do objeto e posteriormente fazer salvar uma nova cidade)
@@ -72,6 +72,5 @@ http://localhost:8080/city/totalNumberOfCities
 - MYSQL
 
 - Java 8 
-
 
 
