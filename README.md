@@ -59,6 +59,23 @@ http://localhost:8080/city/totalRegisterByColumn/uf/RO
 
 http://localhost:8080/city/totalNumberOfCities
 
+### Json para usar na url AddCity
+{
+    "id": null,
+    "idIbge": "1200089",
+    "estado": "MS",
+    "nameCity": "Ladario",
+    "capital": "false",
+    "longitude": "-19 00",
+    "latitude": "-57 00",
+    "noAccents": "Ladario",
+    "alternativeNames": null,
+    "microRegion": "Corumba",
+    "mesoregion": "Centro Oeste",
+    "excluded": false
+}
+
+
 
 ### Tecnologias utilizadas
 - Maven
